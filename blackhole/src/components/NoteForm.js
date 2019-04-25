@@ -14,6 +14,16 @@ export default class NoteForm extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  addNote = e => {
+    e.preventDefault();
+    this.props.history.push("/main-page");
+  };
+
+  back = e => {
+    e.preventDefault();
+    this.props.history.push("/main-page");
+  };
+
   render() {
     return (
       <div className="note-form">
@@ -27,7 +37,8 @@ export default class NoteForm extends React.Component {
         />
         <div className="storage-btn">
           <button> Blackhole </button>
-          <button> Store In Satellite</button>
+          <button onClick={this.addNote}> Store In Satellite</button>
+          <button onClick={this.back}>Back</button>
         </div>
       </div>
     );

@@ -1,17 +1,25 @@
 import React from "react";
 
-export default class Notes extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const Notes = props => {
+  const note = props.notes.find(note => `${note.id}` === props.match.params.id);
 
-  render() {
-    return (
-      <div className="notes">
-        {this.props.notes.map(note => {
-          return <div className="note">{note.text}</div>;
-        })}
+  const back = e => {
+    e.preventDefault();
+    props.history.push("/main-page");
+    console.log("hi");
+  };
+
+  return (
+    <div className="single-note">
+      <div className="single-text">
+        <h3> {note.text}</h3>
       </div>
-    );
-  }
-}
+      <div className="single-btn">
+        <button>Edit</button>
+        <button onClick={back}>Back</button>
+      </div>
+    </div>
+  );
+};
+
+export default Notes;

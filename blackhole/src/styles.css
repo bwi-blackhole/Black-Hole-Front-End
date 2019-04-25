@@ -5,40 +5,45 @@
 
 body {
   margin: 0;
+  width: 100%;
+  height: 100vh;
+  border: 1px solid black;
+  background-image: url("https://media.giphy.com/media/Tj4jjaCxXRVSARsUzN/giphy.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+  overflow: hidden;
 }
 
-.bhlogo {
-  font-size: 24px;
-  margin-right: 10px;
-  padding-right: 20px;
-  border-right: 1px solid black;
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  color: white;
 }
+
 nav {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   padding: 0 16px;
-  border-bottom: 1px solid black;
-  margin-bottom: 32px;
-  height: 70px;
+  border-bottom: 1px solid #efefef;
+  margin-bottom: 5px;
+  font-size: 20px;
 }
 
 .nav-links {
   display: flex;
   justify-content: space-between;
-  margin: 10px;
-  
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #1c5d76;
+  color: #e64944;
   font-weight: bold;
   margin-right: 8px;
-}
-
-.nav-links a:hover {
-  color: red;
 }
 
 .nav-links a:last-of-type {
@@ -49,19 +54,86 @@ nav {
   border-bottom: 1px solid #1c5d76;
 }
 
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+.sign-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sign-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  line-height: 1.5;
+  
+  max-width: 400px;
+  padding: 120px 70px;
+  margin-right: 100px;
+  border-radius: 5px;
+  margin-top: 5%;
+  height: 400px;
+  text-align: center;
+
+}
+
 .Sign-up {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  color: white;
+  border-radius: 5px;
+  max-width: 400px;
+  padding: 120px 70px;
+  margin-right: 100px;
+  border: 1px solid #e64944;
+  background: rgba(42, 42, 42, 0.5);
+  margin-top: 5%;
+  height: 400px;
 }
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  border: 1px solid #e64944;
+  background: rgba(42, 42, 42, 0.5);
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 245px;
+}
+
 form {
   display: flex;
   flex-direction: column;
   max-width: 500px;
   align-items: center;
   margin-top: 20px;
+  
+}
+form > input {
+  background-color: none;
+  border: 0;
+  padding: 6px 0;
+  font-size: 1rem;
+  outline: 0;
+  color: white;
+  margin-top: 10px;
+  border-bottom: 1px solid white;
+  padding: 10px;
+  background: none;
+}
+
+input::placeholder {
+  color: white;
 }
 
 button {
@@ -74,15 +146,16 @@ button {
   min-width: 64px;
   text-align: center;
   outline: none;
-  background-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
-  color: rgb(var(--pure-material-primary-rgb, 255, 255, 255));
+  background-color: black;
+  border: 1px solid #e64944;
+  border-radius: 5px;
+  color: white;
 }
 
-.note-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+button:hover {
+  background-color: orangered;
+  color: black;
+  font-size: 14px;
 }
 
 .main {
@@ -93,41 +166,68 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 120px;
+  flex-direction: column;
+  margin-top: 170px;
 }
 .storage-btn {
-  width: 50%;
   display: flex;
   justify-content: space-between;
+  min-width: 700px;
 }
 
 textarea {
-  width: 50%;
+  min-width: 700px;
   height: 250px;
   padding: 12px 20px;
   box-sizing: border-box;
-  border: 2px solid #ccc;
+  border: 1px solid #e64944;
   border-radius: 4px;
-  background-color: #f8f8f8;
+  background: rgba(42, 42, 42, 0.5);
   resize: none;
+  
 }
 
 .notes {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  color: white;
 }
 
 .note {
-  border: 1px solid black;
+  border: 1px solid #e64944;
+  background: rgba(42, 42, 42, 0.5);
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   font-size: 20px;
-  width: 40%;
+  width: 30%;
   padding: 15px;
   text-align: center;
-  height: 200px;
+  min-height: 200px;
   margin: 20px;
+  padding: 30px;
+}
+
+.single-note {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0 auto;
+  border: 1px solid #e64944;
+  margin-top: 170px;
+  width: 70%;
+  padding: 30px;
+}
+
+.single-btn {
+  display: flex;
+  justify-content: space-evenly;
+  min-width: 700px;
 }

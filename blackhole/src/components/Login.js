@@ -1,14 +1,15 @@
 import React from "react";
-import TextField from "@material-ui/core/TextField";
-import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import purple from "@material-ui/core/colors/purple";
+import { Link } from "react-router-dom";
+// import TextField from "@material-ui/core/TextField";
+// import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+// import purple from "@material-ui/core/colors/purple";
 
-const theme = createMuiTheme({
-  palette: {
-    primary: purple
-  },
-  typography: { useNextVariants: true }
-});
+// const theme = createMuiTheme({
+//   palette: {
+//     primary: purple
+//   },
+//   typography: { useNextVariants: true }
+// });
 
 export default class Login extends React.Component {
   state = {
@@ -32,30 +33,28 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <div className="Sign-up">
+      <div className="login">
         <h1> Login </h1>
         <form onSubmit={this.login}>
-          <MuiThemeProvider theme={theme}>
-            <TextField
-              onChange={this.handleInput}
-              value={this.state.logcreds.logname}
-              name="logname"
-              type="text"
-              label="Name"
-              id="mui-theme-provider-standard-input"
-              className="input"
-            />
-            <TextField
-              onChange={this.handleInput}
-              value={this.state.logcreds.logpassword}
-              name="logpassword"
-              type="password"
-              label="Password"
-              id="mui-theme-provider-standard-input"
-              className="input"
-            />
-          </MuiThemeProvider>
+          <input
+            onChange={this.handleInput}
+            value={this.state.logcreds.logname}
+            name="logname"
+            type="text"
+            placeholder="Username"
+          />
+          <input
+            onChange={this.handleInput}
+            value={this.state.logcreds.logpassword}
+            name="logpassword"
+            type="password"
+            placeholder="Password"
+          />
+
           <button type="submit">Login</button>
+          <Link className="link" to="/sign-up">
+            <p> Need To Sign Up?</p>
+          </Link>
         </form>
       </div>
     );
