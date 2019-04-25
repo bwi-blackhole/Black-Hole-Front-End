@@ -1,49 +1,38 @@
 .App {
   font-family: sans-serif;
   text-align: center;
-  background-color: black;
 }
+
 body {
   margin: 0;
 }
-.logo {
- 
-}
+
 .bhlogo {
   font-size: 24px;
-  color: orangered;
-  margin-right: 20px;
+  margin-right: 10px;
   padding-right: 20px;
-  border-right: 1px solid orangered;
+  border-right: 1px solid black;
 }
-
 nav {
-  background-color: black;
   display: flex;
   justify-content: flex-start;
-  font-size: 36px;
   align-items: center;
   padding: 0 16px;
-  border-bottom: 1px solid red;
-  padding-bottom: 5px;
-  margin-bottom: 50px;
+  border-bottom: 1px solid black;
+  margin-bottom: 32px;
   height: 70px;
-  
 }
 
 .nav-links {
   display: flex;
   justify-content: space-between;
-  font-size: 20px;
-  margin-top: 10px;
-  margin-left: 5px;
-  margin-right: 5px;
- 
+  margin: 10px;
+  
 }
 
 .nav-links a {
   text-decoration: none;
-  color: orangered;
+  color: #1c5d76;
   font-weight: bold;
   margin-right: 8px;
 }
@@ -57,7 +46,7 @@ nav {
 }
 
 .nav-links a.active {
-  border-bottom: 1px solid orangered;
+  border-bottom: 1px solid #1c5d76;
 }
 
 .Sign-up {
@@ -84,4 +73,61 @@ button {
   height: 36px;
   min-width: 64px;
   text-align: center;
+  outline: none;
+  background-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+  color: rgb(var(--pure-material-primary-rgb, 255, 255, 255));
+}
+
+.note-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main {
+  text-align: center;
+}
+
+.note-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 120px;
+}
+.storage-btn {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+textarea {
+  width: 50%;
+  height: 250px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+.notes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.note {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 20px;
+  width: 40%;
+  padding: 15px;
+  text-align: center;
+  height: 200px;
+  margin: 20px;
 }

@@ -1,15 +1,11 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import red from "@material-ui/core/colors/red";
-
-import '../signUp.css';
-
-
+import purple from "@material-ui/core/colors/purple";
 
 const theme = createMuiTheme({
   palette: {
-    primary: red
+    primary: purple
   },
   typography: { useNextVariants: true }
 });
@@ -36,13 +32,11 @@ export default class SignUp extends React.Component {
 
   render() {
     return (
-      <div>
-        <div></div>
       <div className="Sign-up">
         <div>
-          <h1 className="SUh1">Sign Up</h1>
+          <h1>Sign Up</h1>
         </div>
-        <form className="theForm" onSubmit={this.signUp}>
+        <form onSubmit={this.signUp}>
           <MuiThemeProvider theme={theme}>
             <TextField
               onChange={this.handleInput}
@@ -65,7 +59,6 @@ export default class SignUp extends React.Component {
           </MuiThemeProvider>
           <button type="submit">Submit Form</button>
         </form>
-      </div>
       </div>
     );
   }

@@ -20,7 +20,7 @@ export default class Login extends React.Component {
 
   login = e => {
     e.preventDefault();
-    this.props.history.push("/protected");
+    this.props.history.push("/main-page");
   };
 
   handleInput = e => {

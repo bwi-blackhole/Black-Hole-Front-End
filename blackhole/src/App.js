@@ -6,6 +6,8 @@ import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
 import MainPage from "./components/MainPage";
 
+import './styles.css';
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
