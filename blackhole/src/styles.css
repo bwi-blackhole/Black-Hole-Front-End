@@ -1,0 +1,87 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: black;
+}
+body {
+  margin: 0;
+}
+.logo {
+ 
+}
+.bhlogo {
+  font-size: 24px;
+  color: orangered;
+  margin-right: 20px;
+  padding-right: 20px;
+  border-right: 1px solid orangered;
+}
+
+nav {
+  background-color: black;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 36px;
+  align-items: center;
+  padding: 0 16px;
+  border-bottom: 1px solid red;
+  padding-bottom: 5px;
+  margin-bottom: 50px;
+  height: 70px;
+  
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+ 
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: orangered;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.nav-links a:hover {
+  color: red;
+}
+
+.nav-links a:last-of-type {
+  margin-right: 0;
+}
+
+.nav-links a.active {
+  border-bottom: 1px solid orangered;
+}
+
+.Sign-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+button {
+  box-sizing: border-box;
+  border: none;
+  border-radius: 4px;
+  padding: 0 16px;
+  margin-top: 16px;
+  height: 36px;
+  min-width: 64px;
+  text-align: center;
+}

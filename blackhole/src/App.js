@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, NavLink } from "react-router-dom";
+import Home from "./components/Home";
+import SignUp from "./components/SignUp";
+import Login from "./components/Login";
+import PrivateRoute from "./components/PrivateRoute";
+import MainPage from "./components/MainPage";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: []
+    };
+  }
+  render() {
+    return (
+      <>
+        <nav>
+          <div className="logo">
+            <a className="bhlogo"> blackh0le</a>
+          </div>
+          <div className="nav-links">
+            <NavLink exact to="/">
+              Home
+            </NavLink>
+            <NavLink to="/sign-up">SignUp</NavLink>
+            <NavLink to="/login">Login</NavLink>
+            <NavLink to="/main-page">Main Page</NavLink>
+          </div>
+        </nav>
+        <Route exact path="/" component={Home} />
+        <Route path="/sign-up" component={SignUp} />
+        <Route path="/login" component={Login} />
+        {/* <PrivateRoute exact path="/protected" component={MainPage} /> */}
+        <Route path="/main-page" component={MainPage} />
+      </>
+    );
+  }
 }
-
-export default App;
