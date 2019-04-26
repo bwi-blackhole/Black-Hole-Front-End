@@ -13,6 +13,7 @@ body {
   background-position: center;
   background-color: black;
   overflow: hidden;
+  
 }
 
 h1,
@@ -21,17 +22,23 @@ h3,
 h4,
 h5,
 p {
-  color: white;
+  color: #fce6e1f5;
 }
 
+.bhLogo {
+  border-right: 1px solid #ff7450;
+  padding-right: 10px;
+  margin-right: 10px;
+}
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 16px;
-  border-bottom: 1px solid #efefef;
+  border-bottom: 1px solid #ff7450;
   margin-bottom: 5px;
   font-size: 20px;
+  height: 70px;
 }
 
 .nav-links {
@@ -41,17 +48,21 @@ nav {
 
 .nav-links a {
   text-decoration: none;
-  color: #e64944;
+  color: #ff7450;
   font-weight: bold;
   margin-right: 8px;
+  
 }
 
 .nav-links a:last-of-type {
   margin-right: 0;
 }
 
+.nav-links a:hover {
+  color: #d23107;
+}
 .nav-links a.active {
-  border-bottom: 1px solid #1c5d76;
+  border-bottom: 1px solid #d23107;
 }
 
 .link {
@@ -92,7 +103,7 @@ nav {
   max-width: 400px;
   padding: 120px 70px;
   margin-right: 100px;
-  border: 1px solid #e64944;
+  border: 1px solid #d23107;
   background: rgba(42, 42, 42, 0.5);
   margin-top: 5%;
   height: 400px;
@@ -104,7 +115,7 @@ nav {
   justify-content: center;
   align-self: center;
   align-items: center;
-  border: 1px solid #e64944;
+  border: 1px solid #d23107;
   background: rgba(42, 42, 42, 0.5);
   width: 40%;
   margin: 0 auto;
@@ -127,7 +138,7 @@ form > input {
   outline: 0;
   color: white;
   margin-top: 10px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #d23107;
   padding: 10px;
   background: none;
 }
@@ -147,13 +158,13 @@ button {
   text-align: center;
   outline: none;
   background-color: black;
-  border: 1px solid #e64944;
+  border: 1px solid #ff7450;
   border-radius: 5px;
   color: white;
 }
 
 button:hover {
-  background-color: orangered;
+  background-color: #d23107;
   color: black;
   font-size: 14px;
 }
@@ -180,9 +191,10 @@ textarea {
   height: 250px;
   padding: 12px 20px;
   box-sizing: border-box;
-  border: 1px solid #e64944;
+  border: 1px solid #d23107;
   border-radius: 4px;
   background: rgba(42, 42, 42, 0.5);
+  color: white;
   resize: none;
   
 }
@@ -196,7 +208,7 @@ textarea {
 }
 
 .note {
-  border: 1px solid #e64944;
+  border: 1px solid #d23107;
   background: rgba(42, 42, 42, 0.5);
   border-radius: 5px;
   display: flex;
@@ -220,8 +232,9 @@ textarea {
   text-align: center;
   border-radius: 10px;
   margin: 0 auto;
-  border: 1px solid #e64944;
-  margin-top: 170px;
+  border: 1px solid #d23107;
+  background: rgba(42, 42, 42, 0.5);
+  margin-top: 285px;
   width: 70%;
   padding: 30px;
 }
@@ -231,3 +244,4 @@ textarea {
   justify-content: space-evenly;
   min-width: 700px;
 }
+

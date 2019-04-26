@@ -16,6 +16,7 @@ const Notes = props => {
       </div>
       <div className="single-btn">
         <button>Edit</button>
+        <button>Send to Black Hole</button>
         <button onClick={back}>Back</button>
       </div>
     </div>

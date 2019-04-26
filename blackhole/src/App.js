@@ -30,11 +30,13 @@ export default class App extends React.Component {
       <>
         <nav>
           <div className="nav-links">
-          <NavLink to="/sign-up">SignUp</NavLink>
+          <NavLink to="/sign-up" className="bhLogo">blackh0le</NavLink>
 
+            /*
             <NavLink exact to="/">
               Home
             </NavLink>
+            
             
             <NavLink to="/login">Login</NavLink>
             <NavLink exact to="/main-page">

@@ -42,6 +42,7 @@ export default class Login extends React.Component {
             name="logname"
             type="text"
             placeholder="Username"
+            className="inputField"
           />
           <input
             onChange={this.handleInput}
@@ -49,6 +50,7 @@ export default class Login extends React.Component {
             name="logpassword"
             type="password"
             placeholder="Password"
+            className="inputField"
           />
 
           <button type="submit">Login</button>
