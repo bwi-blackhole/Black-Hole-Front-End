@@ -1,26 +1,55 @@
 import React from "react";
+import { connect } from "react-redux";
+import moment from "moment";
+import EditForm from "./EditForm";
 
-const Notes = props => {
-  const note = props.notes.find(note => `${note.id}` === props.match.params.id);
+class Notes extends React.Component {
+  constructor(props) {
+    super(props);
 
-  const back = e => {
+    this.state = {
+      updatingNoteId: false
+    };
+  }
+
+  back = e => {
     e.preventDefault();
-    props.history.push("/main-page");
+    this.props.history.push("/main-page");
     console.log("hi");
   };
+  render() {
+    const note = this.props.notes.find(
+      note => `${note.creator_id}` === this.props.match.params.id
+    );
 
-  return (
-    <div className="single-note">
-      <div className="single-text">
-        <h3> {note.text}</h3>
-      </div>
-      <div className="single-btn">
-        <button>Edit</button>
-        <button>Send to Black Hole</button>
-        <button onClick={back}>Back</button>
-      </div>
-    </div>
-  );
-};
+    return (
+      <>
+        {this.state.updatingNoteId ? (
+          <EditForm />
+        ) : (
+          <div className="single-note">
+            <div className="single-text">
+              <h3> {note.body}</h3>
+            </div>
+            <div className="single-btn">
+              <button>Edit</button>
+              <button onClick={this.back}>Back</button>
+            </div>
+            <p className="small">
+              Created on {moment().format("MMMM Do YYYY")}
+            </p>
+          </div>
+        )}
+      </>
+    );
+  }
+}
 
-export default Notes;
+const mapStateToProps = state => ({
+  notes: state.notes
+});
+
+export default connect(
+  mapStateToProps,
+  {}
+)(Notes);

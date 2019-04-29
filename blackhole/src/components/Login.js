@@ -1,17 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import TextField from "@material-ui/core/TextField";
-// import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-// import purple from "@material-ui/core/colors/purple";
+import { connect } from "react-redux";
+import { login } from "../actions";
 
-// const theme = createMuiTheme({
-//   palette: {
-//     primary: purple
-//   },
-//   typography: { useNextVariants: true }
-// });
-
-export default class Login extends React.Component {
+class Login extends React.Component {
   state = {
     logcreds: {
       logname: "",
@@ -21,6 +13,8 @@ export default class Login extends React.Component {
 
   login = e => {
     e.preventDefault();
+    // this.props.login(this.state.logcreds)
+    // .then(() => this.props.history.push('/main-page'))
     this.props.history.push("/main-page");
   };
 
@@ -42,7 +36,6 @@ export default class Login extends React.Component {
             name="logname"
             type="text"
             placeholder="Username"
-            className="inputField"
           />
           <input
             onChange={this.handleInput}
@@ -50,11 +43,10 @@ export default class Login extends React.Component {
             name="logpassword"
             type="password"
             placeholder="Password"
-            className="inputField"
           />
 
           <button type="submit">Login</button>
-          <Link className="link" to="/sign-up">
+          <Link className="link" to="/">
             <p> Need To Sign Up?</p>
           </Link>
         </form>
@@ -62,3 +54,8 @@ export default class Login extends React.Component {
     );
   }
 }
+
+export default connect(
+  null,
+  { login }
+)(Login);

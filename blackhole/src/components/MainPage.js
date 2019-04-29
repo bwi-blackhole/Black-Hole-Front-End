@@ -1,19 +1,23 @@
 import React from "react";
-export default class MainPage extends React.Component {
-  constructor(props) {
-    super(props);
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { getData } from "../actions";
+// import { PlusCircle } from "react-feather";
 
-    this.state = {
-      //   zeroNotes: true,
-      showForm: false
-    };
-  }
+class MainPage extends React.Component {
+  // componentDidMount() {
+  //   this.props.getData();
+  // }
 
   toNotes = (e, note) => {
     e.preventDefault();
-    console.log(`${note.id}`);
-    this.props.history.push(`/notes/${note.id}`);
+    console.log(`${note.creator_id}`);
+    this.props.history.push(`/notes/${note.creator_id}`);
     // props.getNoteById(note.id);
+  };
+
+  deleteNote = id => {
+    this.props.deleteNotes(id);
   };
 
   toForm = e => {
@@ -25,6 +29,7 @@ export default class MainPage extends React.Component {
     return (
       <div className="main">
         <h1> Satellite Storage </h1>
+        <button onClick={this.toForm}> Create Note</button>
         {this.props.notes.length === 0 ? (
           <h1> Nothing Stored In Satellite!!</h1>
         ) : (
@@ -33,20 +38,33 @@ export default class MainPage extends React.Component {
               return (
                 <div
                   onClick={e => this.toNotes(e, note)}
-                  key={note.id}
+                  key={note.creator_id}
                   className="note"
                 >
-                  {note.text}
+                  {note.body}
                 </div>
               );
             })}
           </div>
         )}
-        <button onClick={this.toForm}> Create Note</button>
+
+        {/* <PlusCircle onClick={this.toForm} color="white"></PlusCircle> */}
       </div>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  notes: state.notes,
+  fetchingNotes: state.fetchingNotes
+});
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getData }
+  )(MainPage)
+);
 
 // <div className="main">
 //   {this.state.showForm ? (
@@ -62,3 +80,5 @@ export default class MainPage extends React.Component {
 //     </>
 //   )}
 // </div>
+
+// yarn init -y

@@ -1,22 +1,52 @@
 import React from "react";
+import { connect } from "react-redux";
+import moment from "moment";
+import { addNote, deleteNotes } from "../actions";
 
-export default class NoteForm extends React.Component {
+class NoteForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      text: ""
+      animate: false,
+      newNote: {
+        text: "",
+        created_at: moment().format("MMMM Do YYYY"),
+        storage: 1
+      }
     };
   }
 
   handleInput = e => {
+    e.persist();
+    this.setState(prevState => ({
+      newNote: { ...prevState.newNote, [e.target.name]: e.target.value }
+    }));
+  };
+
+  handleAnimate = e => {
     e.preventDefault();
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState(prevState => ({
+      animate: !prevState.animate
+    }));
   };
 
   addNote = e => {
     e.preventDefault();
+    // this.props.addNote(this.state.newNote)
+    // .then(() => {
+    //   this.props.history.push('/main-page');
+    // })
+    this.setState({
+      newNote: {
+        text: ""
+      }
+    });
     this.props.history.push("/main-page");
+  };
+
+  deleteNote = id => {
+    this.props.deleteNotes(id);
   };
 
   back = e => {
@@ -27,16 +57,38 @@ export default class NoteForm extends React.Component {
   render() {
     return (
       <div className="note-form">
-        <h1>Say Goodbye To All Of Your Problems</h1>
+        <h1 className="form-header">Say Goodbye To All Of Your Problems</h1>
         <textarea
           placeholder="Vent it all away..."
-          value={this.state.text}
+          value={this.state.newNote.text}
           type="text"
           name="text"
           onChange={this.handleInput}
+          className={this.state.animate ? "gone" : "hi"}
         />
+
+        <div className="select-box">
+          <h3> Days To Store In Satellite: </h3>
+          <select
+            name="storage"
+            onChange={this.handleInput}
+            value={this.state.newNote.storage}
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+        </div>
+
         <div className="storage-btn">
-          <button> Blackhole </button>
+          <button onClick={this.handleAnimate}> Blackhole </button>
+
           <button onClick={this.addNote}> Store In Satellite</button>
           <button onClick={this.back}>Back</button>
         </div>
@@ -44,3 +96,8 @@ export default class NoteForm extends React.Component {
     );
   }
 }
+
+export default connect(
+  null,
+  { addNote, deleteNotes }
+)(NoteForm);
