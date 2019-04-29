@@ -1,4 +1,3 @@
 [build]
 base = "blackhole/"
 publish = "blackhole/build/"
-command = "yarn build"
